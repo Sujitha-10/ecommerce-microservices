@@ -200,3 +200,84 @@ Notification Sent Successfully
 ==============================
 ```
 
+## Database Structure
+
+The application uses separate MySQL databases for each microservice to maintain service independence.
+
+### User Database
+
+```text
+user_db
+
+users
+-----------------
+id
+username
+email
+password
+role
+```
+
+### Product Database
+
+```text
+product_db
+
+product
+-----------------
+id
+name
+price
+quantity
+```
+
+### Order Database
+
+```text
+order_db
+
+orders
+-----------------
+id
+productId
+quantity
+```
+
+## Running the Application
+
+### Step 1: Start Eureka Server
+
+Run:
+
+```text
+EurekaServerApplication
+```
+
+Access:
+
+```text
+http://localhost:8761
+```
+
+---
+
+### Step 2: Start Kafka Broker
+
+Start the Apache Kafka broker.
+
+Kafka is required for notification event processing.
+
+---
+
+### Step 3: Start Services
+
+Start the services in the following order:
+
+```text
+1. Eureka Server
+2. User Service
+3. Product Service
+4. Order Service
+5. Notification Service
+6. API Gateway
+```
