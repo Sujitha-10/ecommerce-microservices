@@ -176,7 +176,7 @@ When an order is created:
 1. Order Service saves the order.
 2. Order Service publishes an event.
 
-Example event:
+Example Order Event:
 
 ```json
 {
@@ -184,8 +184,11 @@ Example event:
   "productId": 10,
   "quantity": 5
 }
+```
 
 3. Notification Service consumes the event.
+
+Terminal Output:
 
 ```text
 ==============================
@@ -195,4 +198,5 @@ Product ID : 10
 Quantity : 5
 Notification Sent Successfully
 ==============================
+```
 
