@@ -4,8 +4,46 @@ A backend application built using **Spring Boot Microservices Architecture** dem
 
 ## Architecture Overview
 
-The application follows a microservices architecture where each service is independently developed and deployed.
+The application follows an event-driven microservices architecture where each service is independently developed, deployed, and responsible for a specific business capability.
 
+```text
+                         Client
+                           |
+                           |
+                    API Gateway
+                    (Port: 8080)
+                           |
+        -----------------------------------------
+        |              |             |            |
+        |              |             |            |
+ User Service   Product Service  Order Service  Notification
+  (8083)          (8081)           (8082)          (8084)
+        |              |             |
+        |              |             |
+    user_db       product_db     order_db
+                                   |
+                                   |
+                             Apache Kafka
+                                   |
+                                   |
+                         Notification Service
+
+
+                    Eureka Server
+                    (Port: 8761)
+
+        All microservices register with Eureka
+        for service discovery and communication
+```
+
+### Communication Flow
+
+- Client requests are received through **API Gateway**.
+- Services register themselves with **Eureka Server** for service discovery.
+- **Order Service** communicates with **Product Service** using OpenFeign.
+- After creating an order, **Order Service** publishes an event to Kafka.
+- **Notification Service** consumes the Kafka event and processes notifications.
+- Each microservice maintains its own independent database.
 
 ## Technologies Used
 
