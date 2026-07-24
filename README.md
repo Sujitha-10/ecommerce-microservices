@@ -187,8 +187,7 @@ Example event:
 
 3. Notification Service consumes the event.
 
-Output:
-
+```text
 ==============================
 Order Received
 Order ID : 1
@@ -196,3 +195,4 @@ Product ID : 10
 Quantity : 5
 Notification Sent Successfully
 ==============================
+
