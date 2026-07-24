@@ -36,7 +36,7 @@ The application follows an event-driven microservices architecture where each se
         for service discovery and communication
 ```
 
-### Communication Flow
+#### Communication Flow
 
 - Client requests are received through **API Gateway**.
 - Services register themselves with **Eureka Server** for service discovery.
@@ -108,12 +108,6 @@ Features:
 - Password encryption using BCrypt
 - JWT token generation
 
-Database:
-user_db
-|
-users table
-
----
 
 ## 4. Product Service
 
@@ -127,12 +121,6 @@ Features:
 - Update product quantity
 - Product availability checking
 
-Database:
-product_db
-|
-product table
-
----
 
 ## 5. Order Service
 
@@ -146,25 +134,6 @@ Features:
 - Communicate with Product Service using OpenFeign
 - Publish order events using Kafka
 
-Flow:
-
-Order Request
-|
-Order Service
-|
-Product Service
-|
-Kafka Event
-
-Database:
-
-order_db
-|
-orders table
-
-
----
-
 ## 6. Notification Service
 
 **Port:** 8084
@@ -175,18 +144,6 @@ Features:
 - Kafka consumer implementation
 - Processes order-created events
 - Sends notification simulation
-
-Flow:
-Order Service
-|
-|
-Kafka Topic
-(order-created)
-|
-|
-Notification Service
-
----
 
 # Authentication Flow
 
@@ -238,7 +195,7 @@ Notification Sent Successfully
 ==============================
 ```
 
-## Database Structure
+# Database Structure
 
 The application uses separate MySQL databases for each microservice to maintain service independence.
 
@@ -281,7 +238,7 @@ productId
 quantity
 ```
 
-## Running the Application
+# Running the Application
 
 ### Step 1: Start Eureka Server
 
@@ -319,7 +276,7 @@ Start the services in the following order:
 5. Notification Service
 6. API Gateway
 ```
-## API Testing
+# API Testing
 
 The APIs can be tested using Postman.
 
