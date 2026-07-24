@@ -184,7 +184,8 @@ Example event:
   "productId": 10,
   "quantity": 5
 }
-Notification Service consumes the event.
+
+3. Notification Service consumes the event.
 
 Output:
 
@@ -195,59 +196,3 @@ Product ID : 10
 Quantity : 5
 Notification Sent Successfully
 ==============================
-
-## Database Structure
-
-User Database
-user_db
-users
------
-id
-username
-email
-password
-role
-
-Product Database
-product_db
-product
--------
-id
-name
-price
-quantity
-
-Order Database
-order_db
-orders
-------
-id
-productId
-quantity
-
-Running the Application
-Step 1: Start Eureka Server
-
-Run:
-
-EurekaServerApplication
-
-Access:
-
-http://localhost:8761
-Step 2: Start Kafka Broker
-
-Start Apache Kafka broker.
-
-Kafka is required for notification event processing.
-
-Step 3: Start Services
-
-Start in this order:
-
-1. Eureka Server
-2. User Service
-3. Product Service
-4. Order Service
-5. Notification Service
-6. API Gateway
