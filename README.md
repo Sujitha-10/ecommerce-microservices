@@ -281,3 +281,41 @@ Start the services in the following order:
 5. Notification Service
 6. API Gateway
 ```
+## API Testing
+
+The APIs can be tested using Postman.
+
+### User Service
+
+```text
+POST   /users/register
+POST   /users/login
+GET    /users/profile
+```
+
+### Product Service
+
+```text
+GET    /products
+POST   /products
+PUT    /products/{id}
+```
+
+### Order Service
+
+```text
+POST   /orders
+GET    /orders
+```
+
+### Authentication
+
+1. Register a new user.
+2. Login to generate JWT token.
+3. Add the token in Postman:
+
+```text
+Authorization → Bearer Token → <JWT Token>
+```
+
+4. Access protected APIs.
