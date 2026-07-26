@@ -175,7 +175,7 @@ Example Order Event:
 
 ```json
 {
-  "id": 1,
+  "orderId": 1,
   "productId": 10,
   "quantity": 5
 }
